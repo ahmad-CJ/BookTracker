@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/book_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Page header with title and button to add a new book -->
+<div class="page-header">
+    <h2>My Personal Library</h2> <!-- Page title -->
+    <a href="{% url 'book_create' %}" class="btn btn-primary">+ Add New Book</a> <!-- Button to add a new book -->
+</div>
+
+<!-- grid to display all the books -->
+<div class="books-grid">
+    {% for book in books %}
+    <div class="book-card">
+        <h3 class="book-title">{{ book.title }}</h3> <!-- Display the title of the book -->
+
+        <div class="book-meta">
+            <!-- Display the meta information of the book (author, genre, and publication year) -->
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Genre:</strong> {{ book.genre }}</p>
+            <p><strong>Year:</strong> {{ book.publication_year }}</p>
+        </div>
+
+        <div class="card-actions">
+        
+            <!-- form to toggle the read/unread status of the book -->
+            <form method="post" action="{% url 'toggle_read' book.id %}" class="status-form">
+                {% csrf_token %}
+                <button type="submit" class="status-btn {% if book.is_read %}read{% else %}unread{% endif %}">
+                    <!-- Button text changes based on the book's read status -->
+                    {% if book.is_read %}✓ Read{% else %}❌ Unread{% endif %}
+                </button>
+            </form>
+
+            <!-- Action buttons for view, edit, and delete -->
+            <div class="action-buttons">
+                <a href="{% url 'book_detail' book.pk %}" class="action-btn primary">View</a> <!-- Button to view book details -->
+                <a href="{% url 'book_update' book.pk %}" class="action-btn warning">Edit</a> <!-- Button to edit the book -->
+                <a href="{% url 'book_delete' book.pk %}" class="action-btn danger">Delete</a> <!-- Button to delete the book -->
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <!-- Empty state if no books are in the library -->
+    <div class="empty-state">
+        <p class="empty-text">No books in the library yet.</p> <!-- Message when no books are available -->
+        <a href="{% url 'book_create' %}" class="btn btn-primary">Add First Book</a> <!-- Button to add the first book -->
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

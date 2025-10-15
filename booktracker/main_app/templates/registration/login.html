@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/book_form.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-card">
+        <div class="form-header">
+            <h2>Login to BookTracker</h2>
+        </div>
+        <div class="form-body">
+            <form method="post" class="auth-form">
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                <div class="error-list">
+                    <strong>Login Error:</strong>
+                    <p>Please enter a correct username and password.</p>
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="id_username" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="id_username" required 
+                           placeholder="Enter your username">
+                </div>
+
+                <div class="form-group">
+                    <label for="id_password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="id_password" required 
+                           placeholder="Enter your password">
+                </div>
+
+                <div class="form-actions">
+                    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+
+            <div class="auth-footer" style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+                <p>Don't have an account? <a href="{% url 'signup' %}" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

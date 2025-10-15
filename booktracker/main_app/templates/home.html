@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- grid section to display statistics -->
+<div class="stats-grid">
+    <!-- stat card for total books -->
+    <div class="stat-card primary">
+        <h3>{{ stats.total_books }}</h3> <!-- displays the total number of books -->
+        <p>Total Books</p> <!-- Label for the stat -->
+    </div>
+    
+    <!-- stat card for books read -->
+    <div class="stat-card success">
+        <h3>{{ stats.read_books }}</h3>
+        <p>Books Read</p> 
+    </div>
+    
+    <!-- stat card for unread books -->
+    <div class="stat-card warning">
+        <h3>{{ stats.unread_books }}</h3>
+        <p>Unread Books</p>
+    </div>
+</div>
+
+<!-- Hero section with a welcoming message and action buttons -->
+<div class="hero-section">
+    <h1>Welcome to BookTracker                 <img src="{% static 'images/logo.png' %}" alt="BookTracker Logo" 
+                     style="height: 45px; width: 45; margin-right: 15px;"></h1>
+    <p class="lead">Complete system to organize and track your personal library</p>
+<!-- buttons in home page-->
+    <div class="btn-group">
+        <a href="{% url 'book_list' %}" class="btn btn-primary">Browse Library</a>
+        <a href="{% url 'book_create' %}" class="btn btn-success">Add New Book</a>
+    </div>
+</div>
+{% endblock %}

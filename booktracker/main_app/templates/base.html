@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTracker - Book Management System</title>
+    
+    {% load static %}
+    <link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- Navbar section -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo and brand name that links to the home page -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="BookTracker Logo" 
+                     style="height: 35px; width: auto; margin-right: 10px;">
+                BookTracker
+            </a>
+            
+            <!-- Button to toggle the mobile navigation menu -->
+            <button class="navbar-toggle" type="button" id="navbarToggle">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </button>
+            
+            <!-- Navbar menu that will be toggled in mobile view -->
+            <div class="navbar-menu" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <!-- Navigation links -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">
+                            <span class="nav-icon">                <img src="{% static 'images/home.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'book_list' %}">
+                            <span class="nav-icon">                <img src="{% static 'images/list.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> All Books
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'book_create' %}">
+                            <span class="nav-icon">                <img src="{% static 'images/add.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> Add Book
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">
+                            <span class="nav-icon">                <img src="{% static 'images/about.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> About
+                        </a>
+                    </li>
+                            <!-- + -->
+                    <!-- Add Login/Logout Button -->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="nav-link" style="color: #ccc;">
+                            👋 Hello, {{ user.username }}
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">
+                            <span class="nav-icon">                <img src="{% static 'images/logout.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> Logout
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">
+                            <span class="nav-icon">                <img src="{% static 'images/login.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">
+                            <span class="nav-icon">                <img src="{% static 'images/signup.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> Sign Up
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul> <!-- Closing the navbar-nav list -->
+            </div>
+        </div>
+    </nav>
+
+        <!-- main content area where messages and dynamic content will be displayed -->
+    <div class="container">
+    {% if messages and not request.path == '/admin/' and not request.path|slice:":6" == '/admin' %} <!-- To not show the message on the admin page -->
+                    <!-- Alert message section, dynamically generated from the backend -->
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                <span class="alert-icon">                <img src="{% static 'images/about.png' %}" alt="BookTracker Logo" 
+                     style="height: 25px; width: auto; margin-right: 10px;"></span> {{ message }}
+                <!-- Close button to dismiss the alert message -->
+                <button type="button" class="alert-close" onclick="this.parentElement.style.display='none'">×</button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+    <!-- Footer section with copyright -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">BookTracker 2025 ©</p>
+        </div>
+    </footer>
+
+    <!-- Script for toggling the navbar menu on small screens -->
+    <script>
+        document.getElementById('navbarToggle').addEventListener('click', function() {
+            const menu = document.getElementById('navbarMenu');
+            menu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

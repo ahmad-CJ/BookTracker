@@ -1,0 +1,192 @@
+/* ===== Container for all About page content ===== */
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ===== Header Section (Top area with title & intro text) ===== */
+.about-header {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 3rem;
+}
+
+/* Main page title */
+.about-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10rem;
+}
+
+/* Subheading text under title */
+.about-header .lead {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* ===== Section Wrapper for About Content ===== */
+.about-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Section titles (“About the Project”, “Goals”, etc.) */
+.about-section h2 {
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+}
+
+/* Paragraph text inside sections */
+.about-section p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* ===== Features Grid (for showing key features) ===== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Individual feature card */
+.feature-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border-top: 4px solid var(--primary-color);
+}
+
+/* Hover animation for feature cards */
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Feature icon styling */
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Feature title */
+.feature-card h3 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* Feature description text */
+.feature-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ===== Developer Info Section ===== */
+.developer-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Developer text (name, role, etc.) */
+.developer-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* ===== Tech Stack Section ===== */
+.tech-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Individual technology item card */
+.tech-item {
+    background: var(--light-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ===== Call-To-Action (CTA) Section ===== */
+.cta-section {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: var(--border-radius);
+}
+
+/* CTA section title */
+.cta-section h2 {
+    color: white;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+/* CTA section paragraph */
+.cta-section p {
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Buttons group in CTA section */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== Responsive Design (for mobile screens) ===== */
+@media (max-width: 768px) {
+    /* Smaller header title */
+    .about-header h1 {
+        font-size: 2rem;
+    }
+    
+    /* Smaller subtitle */
+    .about-header .lead {
+        font-size: 1.1rem;
+    }
+    
+    /* Stack features in one column */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stack developer info vertically */
+    .developer-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Stack CTA buttons vertically */
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Make CTA buttons full width on mobile */
+    .cta-buttons .btn {
+        width: 200px;
+        text-align: center;
+    }
+}

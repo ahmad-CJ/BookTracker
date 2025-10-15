@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/book_form.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Container for the form -->
+<div class="form-container">
+    <div class="form-card">
+        <div class="form-header">
+            <h2>
+                <!-- Conditional statement to check if it's an edit or add form -->
+                {% if object %}
+                    Edit Book: {{ object.title }}  <!-- If it's an edit show the book title -->
+                {% else %}
+                    Add New Book  <!-- If it's an add form show (Add New Book) -->
+                {% endif %}
+            </h2>
+        </div>
+        
+        <div class="form-body">
+            <form method="post">
+                {% csrf_token %}  <!-- CSRF token for security to prevent cross-site request forgery -->
+
+                <!-- display errors if there are any validation issues with the form -->
+                {% if form.errors %}
+                <div class="error-list">
+                    <strong>Please correct the following errors:</strong>
+                    <ul>
+                        <!-- loop through each field's errors and display them -->
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ field.label }}: {{ error }}</li>  <!-- display error message for each field -->
+                            {% endfor %}
+                        {% endfor %}
+                        <!-- display non-field errors (errors not related to a specific field) -->
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                <!-- Row for book title and author -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="id_title" class="form-label">Book Title *</label>
+                        <input type="text" name="title" class="form-control" 
+                               id="id_title" value="{{ form.title.value|default:'' }}" 
+                               required maxlength="200" placeholder="Enter book title"> <!-- Title input field -->
+                    </div>
+                    <div class="form-group">
+                        <label for="id_author" class="form-label">Author *</label>
+                        <input type="text" name="author" class="form-control" 
+                               id="id_author" value="{{ form.author.value|default:'' }}" 
+                               required maxlength="100" placeholder="Enter author name"> <!-- Author input field -->
+                    </div>
+                </div>
+
+                <!-- Row for genre and publication year -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="id_genre" class="form-label">Genre</label>
+                        <select name="genre" class="form-select" id="id_genre">
+                            <!-- Loop through the genre choices and mark the selected option -->
+                            {% for value, text in form.fields.genre.choices %}
+                                <option value="{{ value }}" 
+                                        {% if form.genre.value == value %}selected{% endif %}>
+                                    {{ text }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_publication_year" class="form-label">Publication Year</label>
+                        <input type="number" name="publication_year" class="form-control" 
+                               id="id_publication_year" value="{{ form.publication_year.value|default:'' }}"
+                               min="1000" max="2025" placeholder="Insert year"> <!-- Publication year input -->
+                    </div>
+                </div>
+
+                <!-- Description field -->
+                <div class="form-group">
+                    <label for="id_description" class="form-label">Description</label>
+                    <textarea name="description" class="form-control form-textarea" id="id_description" 
+                              rows="4" placeholder="Write a brief description about the book...">{{ form.description.value|default:'' }}</textarea> <!-- Description text area -->
+                </div>
+
+                <!-- Checkbox for indicating if the book has been read -->
+                <div class="form-switch">
+                    <label class="switch">
+                        <input type="checkbox" name="is_read"
+                               id="id_is_read" {% if form.is_read.value %}checked{% endif %}> <!-- Read checkbox -->
+                        <span class="slider"></span>
+                    </label>
+                    <label for="id_is_read" class="switch-label">I have read this book</label> <!-- label for the checkbox -->
+                </div>
+
+                <!-- Form actions (buttons for canceling or submitting the form) -->
+                <div class="form-actions">
+                    <!-- Cancel button that redirects back to the book list or specific book details page -->
+                    <a href="{% if object %}{% url 'book_detail' object.pk %}{% else %}{% url 'book_list' %}{% endif %}" 
+                       class="btn btn-secondary">Cancel</a>
+                    <!-- submit button (changes depending on adding or updating the book) -->
+                    <button type="submit" class="btn btn-success">
+                        {% if object %}Update Book{% else %}Add Book{% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

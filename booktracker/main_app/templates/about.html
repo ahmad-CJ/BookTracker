@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Starting the content container of the page -->
+<div class="about-container">
+    <!-- Page header section -->
+    <div class="about-header">
+        <h1>About BookTracker</h1> <!-- Page title -->
+        <p class="lead">Your Personal Library Management Solution</p> <!-- Brief description of the app -->
+    </div>
+
+    <!-- Main content section -->
+    <div class="about-content">
+        <!-- "What is BookTracker?" section -->
+        <div class="about-section">
+            <h2>📖 What is BookTracker?</h2>
+            <p>
+                BookTracker is a comprehensive web application designed to help book lovers 
+                organize and manage their personal libraries. Whether you're an avid reader 
+                or just starting your reading journey, BookTracker provides all the tools 
+                you need to keep track of your books, reviews, and reading progress.
+            </p>
+        </div>
+
+        <!-- "Features" section -->
+        <div class="about-section">
+            <h2>⭐ Features</h2>
+            <div class="features-grid"> <!-- Feature grid display -->
+                <!-- First feature card -->
+                <div class="feature-card">
+                    <div class="feature-icon">📚
+                    <h3>Book Management</h3>
+                    <p>Add, edit, and organize your book collection with detailed information including title, author, genre, and publication year.</p> <!-- Feature description -->
+                </div>
+                
+                <!-- Second feature card -->
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Reading Status</h3>
+                    <p>Track your reading progress by marking books as read or unread with a simple toggle.</p> <!-- Feature description -->
+                </div>
+                
+                <!-- Third feature card -->
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Reviews & Ratings</h3>
+                    <p>Add reviews and ratings to remember what you loved about each book and share your thoughts.</p> <!-- Feature description -->
+                </div>
+                
+                <!-- Fourth feature card -->
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Reading Statistics</h3>
+                    <p>Get insights into your reading habits with comprehensive statistics and progress tracking.</p> <!-- Feature description -->
+                </div>
+            </div>
+        </div>
+
+        <!-- "About the Developers" section -->
+        <div class="about-section">
+            <h2>👨‍💻 About the Developers</h2>
+            <div class="developer-info">
+                <div class="developer-text">
+                    <h3>Ahmad Hamed and Fadi Alnshiwat</h3>
+                    <p>
+                        BookTracker was developed by Ahmad Hamed and Fadi Alnshiwat as a comprehensive web application 
+                        project. This application demonstrates modern web development practices 
+                        including clean design, responsive layout, and user-friendly functionality.
+                    </p>
+                    <p>
+                        The project showcases skills in Django framework, frontend development, 
+                        and user experience design to create a practical and elegant solution 
+                        for book management.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- "Technical Details" section -->
+        <div class="about-section">
+            <h2>🔧 Technical Details</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <strong>Backend:</strong> Django Framework
+                </div>
+                <div class="tech-item">
+                    <strong>Frontend:</strong> CSS, HTML5
+                </div>
+                <div class="tech-item">
+                    <strong>Database:</strong> SQLite/PostgreSQL
+                </div>
+                <div class="tech-item">
+                    <strong>Responsive Design:</strong> Mobile-first approach
+                </div>
+            </div>
+        </div>
+
+        <!-- call to action section -->
+        <div class="cta-section">
+            <h2>Ready to Organize Your Library?</h2>
+            <p>Start using BookTracker today and take control of your reading journey!</p>
+            <!-- adding book and library buttons -->
+            <div class="cta-buttons">
+                <a href="{% url 'book_create' %}" class="btn btn-primary">Add Your Book</a>
+                <a href="{% url 'book_list' %}" class="btn btn-secondary">Browse Library</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

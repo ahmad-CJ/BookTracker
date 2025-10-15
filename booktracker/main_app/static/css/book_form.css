@@ -1,0 +1,214 @@
+/* Container for the form, centers it and adds padding */
+.form-container {
+    max-width: 800px; /* Limits the form's width */
+    margin: 0 auto; /* Centers the form horizontally */
+    padding: 2rem 0; /* Adds vertical padding */
+}
+
+/* Card-style layout for the form */
+.form-card {
+    background: white; /* White background */
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Shadow effect for depth */
+    overflow: hidden; /* Ensures no content spills out */
+}
+
+/* Header of the form with primary color */
+.form-header {
+    background: var(--primary-color); /* Primary color for the header */
+    color: white; /* White text */
+    padding: 1.5rem 2rem; /* Padding for spacing */
+}
+
+/* Styling for the form header title */
+.form-header h2 {
+    margin: 0; /* Removes default margin */
+    font-size: 1.5rem; /* Sets a smaller font size for the title */
+}
+
+/* Body of the form with padding */
+.form-body {
+    padding: 2rem; /* Adds padding around the form fields */
+}
+
+/* Grid layout for form rows, two columns */
+.form-row {
+    display: grid; /* Using grid for layout */
+    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    gap: 1.5rem; /* Adds space between the columns */
+    margin-bottom: 1.5rem; /* Adds space below each row */
+}
+
+/* Grouping form fields for spacing */
+.form-group {
+    margin-bottom: 1.5rem; /* Adds margin below each form group */
+}
+
+/* Styling for labels in the form */
+.form-label {
+    display: block; /* Makes the label a block element */
+    margin-bottom: 0.5rem; /* Adds some space below the label */
+    font-weight: 600; /* Makes the label bold */
+    color: var(--dark-color); /* Sets the label text color */
+    font-size: 0.95rem; /* Sets the font size for labels */
+}
+
+/* Standard form control for inputs and selects */
+.form-control, .form-select {
+    width: 100%; /* Makes the input/select take full width */
+    padding: 0.75rem; /* Adds padding inside inputs */
+    border: 2px solid #ddd; /* Border color */
+    border-radius: var(--border-radius); /* Rounded corners */
+    font-size: 1rem; /* Sets the font size */
+    transition: var(--transition); /* Smooth transition on focus */
+    font-family: inherit; /* Inherits font from the parent */
+}
+
+/* Focused state for form inputs/selects */
+.form-control:focus, .form-select:focus {
+    outline: none; /* Removes outline */
+    border-color: var(--primary-color); /* Changes border color */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); /* Adds a subtle glow */
+}
+
+/* Placeholder text styling */
+.form-control::placeholder {
+    color: #999; /* Lighter color for placeholder */
+}
+
+/* Styling for the text area */
+.form-textarea {
+    min-height: 120px; /* Minimum height for the textarea */
+    resize: vertical; /* Allows the user to resize the textarea vertically */
+    font-family: inherit; /* Inherits the font family */
+}
+
+/* Switch toggle styling for form options */
+.form-switch {
+    display: flex; /* Flex layout for the switch */
+    align-items: center; /* Centers the switch vertically */
+    gap: 1rem; /* Adds space between elements */
+    padding: 1.5rem; /* Padding around the switch */
+    background: #f8f9fa; /* Light background */
+    border-radius: var(--border-radius); /* Rounded corners */
+    margin: 1.5rem 0; /* Vertical margin for spacing */
+}
+
+/* Basic styling for the switch itself */
+.switch {
+    position: relative; /* Required for positioning the slider */
+    display: inline-block; /* Makes the switch inline */
+    width: 60px; /* Width of the switch */
+    height: 34px; /* Height of the switch */
+}
+
+/* Hide the checkbox input in the switch */
+.switch input {
+    opacity: 0; /* Hides the checkbox input */
+    width: 0; /* Sets width to 0 */
+    height: 0; /* Sets height to 0 */
+}
+
+/* Slider element of the switch */
+.slider {
+    position: absolute; /* Position it within the switch */
+    cursor: pointer; /* Pointer cursor */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Gray background */
+    transition: var(--transition); /* Smooth transition */
+    border-radius: 34px; /* Rounded corners */
+}
+
+/* Circle inside the slider */
+.slider:before {
+    position: absolute; /* Positions the circle inside the slider */
+    content: "";
+    height: 26px; /* Height of the circle */
+    width: 26px; /* Width of the circle */
+    left: 4px; /* Position from the left */
+    bottom: 4px; /* Position from the bottom */
+    background-color: white; /* White circle */
+    transition: var(--transition); /* Smooth transition */
+    border-radius: 50%; /* Makes it circular */
+}
+
+/* When the switch is checked, change the background color */
+input:checked + .slider {
+    background-color: var(--success-color); /* Success color for the slider */
+}
+
+/* When the switch is checked, move the circle to the right */
+input:checked + .slider:before {
+    transform: translateX(26px); /* Moves the circle */
+}
+
+/* Label for the switch */
+.switch-label {
+    font-weight: 600; /* Bold font */
+    color: var(--dark-color); /* Dark text color */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Styling for the action buttons in the form */
+.form-actions {
+    display: flex; /* Flex layout */
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Centers the items vertically */
+    padding-top: 1.5rem; /* Padding on top */
+    border-top: 1px solid #eee; /* Border at the top */
+    margin-top: 1.5rem; /* Vertical margin */
+}
+
+/* Error list styling */
+.error-list {
+    background: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    padding: 1rem; /* Padding around the error list */
+    border-radius: var(--border-radius); /* Rounded corners */
+    margin-bottom: 1.5rem; /* Margin below the error list */
+    border-left: 4px solid var(--danger-color); /* Left border with danger color */
+}
+
+/* Styling the error list items */
+.error-list ul {
+    margin: 0; /* Removes default margin */
+    padding-left: 1.5rem; /* Adds padding to the left */
+}
+
+.error-list li {
+    margin-bottom: 0.3rem; /* Spacing between error items */
+    font-size: 0.9rem; /* Smaller font size for the error list */
+}
+
+/* Media query for smaller screens (mobile) */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1rem; /* Reduces padding on smaller screens */
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr; /* Stacks the form fields in one column */
+        gap: 0; /* Removes gap between the form fields */
+    }
+    
+    .form-body {
+        padding: 1.5rem; /* Adjust padding on smaller screens */
+    }
+    
+    .form-header {
+        padding: 1rem 1.5rem; /* Adjust header padding */
+    }
+    
+    .form-actions {
+        flex-direction: column; /* Stack action buttons vertically */
+        gap: 1rem; /* Space between buttons */
+    }
+    
+    .form-actions .btn {
+        width: 100%; /* Make buttons full-width on mobile */
+        justify-content: center; /* Center the button text */
+    }
+}

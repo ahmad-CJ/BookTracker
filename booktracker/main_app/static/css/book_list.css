@@ -1,0 +1,178 @@
+/* ---------- Page Header Section ---------- */
+.page-header {
+    display: flex; /* Arrange items horizontally */
+    justify-content: space-between; /* Space between title and buttons */
+    align-items: center; /* Vertically align elements */
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--light-color); /* Add bottom border for separation */
+}
+
+.page-header h2 {
+    color: var(--dark-color);
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* ---------- Books Grid Layout ---------- */
+.books-grid {
+    display: grid; /* Use CSS Grid to layout book cards */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Space between cards */
+    margin-top: 2rem;
+}
+
+/* ---------- Individual Book Card ---------- */
+.book-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color); /* Add colored left border */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    height: 100%;
+}
+
+.book-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* ---------- Book Title and Meta Info ---------- */
+.book-title {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.book-meta {
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Pushes the buttons to the bottom */
+}
+
+.book-meta p {
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ---------- Card Actions (Buttons & Forms) ---------- */
+.card-actions {
+    display: flex;
+    justify-content: space-between; /* Spread buttons evenly */
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto; /* Stick actions to bottom of the card */
+}
+
+.status-form {
+    margin: 0;
+}
+
+/* ---------- Status Buttons (Read / Unread) ---------- */
+.status-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+    min-width: 100px;
+}
+
+/* Green button for read books */
+.status-btn.read {
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* Gray button for unread books */
+.status-btn.unread {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.status-btn:hover {
+    transform: translateY(-2px); /* Lift slightly on hover */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ---------- Action Buttons (Edit / Delete) ---------- */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem; /* Space between buttons */
+}
+
+.action-btn {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex; /* Align icon and text inline */
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Different colors for different actions */
+.action-btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.action-btn.warning {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.action-btn.danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px); /* Add subtle hover animation */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ---------- Empty State (No Books Available) ---------- */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    grid-column: 1 / -1; /* Span across all grid columns */
+}
+
+.empty-text {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column; /* Stack header elements vertically */
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .books-grid {
+        grid-template-columns: 1fr; /* One card per row */
+    }
+    
+    .card-actions {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 0.8rem;
+    }
+    
+    .action-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}

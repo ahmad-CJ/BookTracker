@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">  <!--Grid-->
+        <div class="card">   <!--create flexible interfaces to display content in a rectangular or "card" format-->
+            <div class="card-header bg-danger text-white">
+                <h4>Confirm Delete</h4>
+            </div>
+            <div class="card-body text-center">
+                <div class="alert alert-warning">
+                    <h5>⚠️ Warning!</h5>
+                    <p>You are about to delete the following book:</p>
+                    <h4 class="text-danger">"{{ object.title }}"</h4>
+                    <p class="mb-0">by <strong>{{ object.author }}</strong></p> <!--remove bottom margin from title -->
+                </div>
+
+                <p class="text-muted">
+                    This action cannot be undo.
+                    The book and all associated reviews will be permanently deleted.
+                </p>
+
+                <div class="mt-4"> <!--top margin from title -->
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-lg">
+                            🗑️ Yes, Delete Book
+                        </button>
+                        <a href="{% url 'book_detail' object.pk %}" class="btn btn-secondary btn-lg">
+                            ❌ Cancel
+                        </a>
+                    </form>
+                </div>
+
+                <!-- Additional book info -->
+                <div class="card mt-4">
+                    <div class="card-body text-start">
+                        <h6>Book Information:</h6>
+                        <p><strong>Genre:</strong> {{ object.genre }}</p>
+                        <p><strong>Publication Year:</strong> {{ object.publication_year }}</p>
+                        <p><strong>Status:</strong> 
+                            {% if object.is_read %}✓ Read{% else %}❌ Unread{% endif %}
+                        </p>
+                        <p><strong>Total Reviews:</strong> {{ object.reviews.count }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

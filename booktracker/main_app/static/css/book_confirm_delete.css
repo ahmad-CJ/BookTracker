@@ -1,0 +1,140 @@
+/* Container for the delete action, centered with max-width */
+.delete-container {
+    max-width: 600px; /* Limits the width of the container */
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+/* Card-style container for the delete action */
+.delete-card {
+    background: white; /* White background for the card */
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    overflow: hidden; /* Ensures no child elements overflow the card */
+}
+
+/* Header section of the delete card */
+.delete-header {
+    background: var(--danger-color); /* Danger color (red) background */
+    color: white; /* White text color */
+    padding: 1.5rem 2rem; /* Padding for spacing */
+    text-align: center; /* Centers the text */
+}
+
+/* Body section of the delete card */
+.delete-body {
+    padding: 2rem; /* Padding for spacing */
+    text-align: center; /* Centers the content */
+}
+
+/* Warning alert box to show a caution message */
+.warning-alert {
+    background: #fff3cd; /* Light yellow background */
+    border: 2px solid var(--warning-color); /* Warning color border */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 1.5rem; /* Padding for spacing */
+    margin-bottom: 1.5rem; /* Bottom margin for separation */
+}
+
+/* Styling the warning alert heading */
+.warning-alert h5 {
+    color: #856404; /* Dark yellow color for the heading */
+    margin-bottom: 1rem; /* Spacing below the heading */
+    font-size: 1.2rem; /* Larger font size */
+}
+
+/* Styling for the book title in danger alert */
+.book-title-danger {
+    color: var(--danger-color); /* Red color for the book title */
+    font-size: 1.5rem; /* Larger font size */
+    margin: 1rem 0; /* Vertical margin */
+    font-weight: bold; /* Bold text */
+}
+
+/* Container for the action buttons (delete and cancel) */
+.delete-actions {
+    display: flex; /* Flexbox for aligning items */
+    gap: 1rem; /* Spacing between items */
+    justify-content: center; /* Centers the items horizontally */
+    margin: 2rem 0; /* Vertical margin for spacing */
+    flex-wrap: wrap; /* Allows wrapping of items on smaller screens */
+}
+
+/* Styling for the delete button */
+.delete-btn {
+    background-color: var(--danger-color); /* Red background */
+    color: white; /* White text */
+    padding: 0.75rem 1.5rem; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: var(--border-radius); /* Rounded corners */
+    font-weight: 600; /* Bold font */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: var(--transition); /* Smooth transition on hover */
+    display: inline-flex; /* Inline-flex for aligning icon and text */
+    align-items: center; /* Vertically centers icon and text */
+    gap: 0.5rem; /* Space between icon and text */
+}
+
+/* Styling for the cancel button */
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+    padding: 0.75rem 1.5rem; /* Padding for the button */
+    border: none;
+    border-radius: var(--border-radius); /* Rounded corners */
+    text-decoration: none; /* No underline */
+    font-weight: 600; /* Bold font */
+    transition: var(--transition); /* Smooth transition on hover */
+    display: inline-flex; /* Inline-flex for aligning icon and text */
+    align-items: center; /* Vertically centers icon and text */
+    gap: 0.5rem; /* Space between icon and text */
+}
+
+/* Hover effect for buttons */
+.delete-btn:hover, .cancel-btn:hover {
+    transform: translateY(-2px); /* Slightly lifts the button */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Shadow effect */
+}
+
+/* Card for displaying book info */
+.book-info-card {
+    background: #f8f9fa; /* Light gray background */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 1.5rem; /* Padding for the card */
+    margin-top: 1.5rem; /* Margin above the card */
+    text-align: left; /* Left-align the text */
+}
+
+/* Styling for the heading inside book info card */
+.book-info-card h6 {
+    color: var(--dark-color); /* Dark text color */
+    margin-bottom: 1rem; /* Margin below the heading */
+    padding-bottom: 0.5rem; /* Padding below the heading */
+    border-bottom: 1px solid #ddd; /* Border below the heading */
+}
+
+/* Grid layout for displaying book info */
+.info-grid {
+    display: grid; /* Using grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 1rem; /* Spacing between grid items */
+}
+
+/* Container for each piece of information in the grid */
+.info-item {
+    display: flex; /* Flexbox for aligning elements */
+    flex-direction: column; /* Stacks the label and value vertically */
+}
+
+/* Label styling for the information items */
+.info-label {
+    font-weight: 600; /* Bold label text */
+    color: #666; /* Gray text color */
+    font-size: 0.9rem; /* Smaller font size */
+    margin-bottom: 0.3rem; /* Margin below the label */
+}
+
+/* Value styling for the information items */
+.info-value {
+    color: var(--dark-color); /* Dark text color */
+    font-weight: 500; /* Medium font weight */
+}

@@ -1,0 +1,224 @@
+/* Header section for the book details, flexbox for alignment */
+.detail-header {
+    display: flex; /* Using flexbox for alignment */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Vertically centers the items */
+    margin-bottom: 1.5rem; /* Margin below the header */
+    padding-bottom: 1rem; /* Padding at the bottom of the header */
+    border-bottom: 2px solid var(--light-color); /* Bottom border */
+}
+
+/* Action buttons for book details, aligned using flexbox */
+.action-buttons {
+    display: flex; /* Flexbox layout */
+    gap: 0.5rem; /* Space between buttons */
+}
+
+/* Card styling for displaying book details */
+.book-info {
+    background: white; /* White background for the card */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 2rem; /* Padding for spacing */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    margin-bottom: 1.5rem; /* Margin below the card */
+}
+
+/* Styling for the book title */
+.book-title {
+    color: var(--dark-color); /* Dark text color */
+    margin-bottom: 1rem; /* Space below the title */
+    font-size: 2rem; /* Larger font size */
+}
+
+/* Styling for book metadata (author, genre, etc.) */
+.book-meta {
+    margin-bottom: 1.5rem; /* Margin below the metadata */
+}
+
+.book-meta p {
+    margin-bottom: 0.8rem; /* Margin between metadata items */
+    font-size: 1.1rem; /* Font size for metadata */
+}
+
+/* Badge for indicating the book's read/unread status */
+.status-badge {
+    padding: 0.3rem 0.8rem; /* Padding for the badge */
+    border-radius: 20px; /* Rounded corners */
+    font-size: 0.9rem; /* Font size */
+    font-weight: 600; /* Bold text */
+}
+
+/* Styling for read status (green background) */
+.status-badge.read {
+    background-color: var(--success-color); /* Success (green) background */
+    color: white; /* White text */
+}
+
+/* Styling for unread status (yellow background) */
+.status-badge.unread {
+    background-color: var(--warning-color); /* Warning (yellow) background */
+    color: white; /* White text */
+}
+
+/* Form to toggle the read/unread status */
+.toggle-form {
+    margin-top: 1.5rem; /* Space above the form */
+}
+
+/* Styling for the toggle button */
+.toggle-btn {
+    padding: 0.75rem 1.5rem; /* Padding for the button */
+    border: 2px solid; /* Border for the button */
+    border-radius: var(--border-radius); /* Rounded corners */
+    background: none; /* Transparent background */
+    cursor: pointer; /* Pointer cursor */
+    font-weight: 600; /* Bold text */
+    transition: var(--transition); /* Smooth transition on hover */
+}
+
+/* Read button styling (yellow color) */
+.toggle-btn.read {
+    border-color: var(--warning-color); /* Border color */
+    color: var(--warning-color); /* Text color */
+}
+
+/* Unread button styling (green color) */
+.toggle-btn.unread {
+    border-color: var(--success-color); /* Border color */
+    color: var(--success-color); /* Text color */
+}
+
+/* Hover effect for the toggle button */
+.toggle-btn:hover {
+    transform: translateY(-2px); /* Slightly lifts the button */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Shadow effect */
+}
+
+/* Reviews section styling */
+.reviews-section {
+    background: white; /* White background for the section */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 2rem; /* Padding for spacing */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+}
+
+/* Review form styling */
+.review-form {
+    margin-bottom: 2rem; /* Space below the form */
+    padding-bottom: 2rem; /* Padding below the form */
+    border-bottom: 1px solid var(--light-color); /* Bottom border */
+}
+
+/* Styling for each form group */
+.form-group {
+    margin-bottom: 1.5rem; /* Spacing between form groups */
+}
+
+/* Label for form inputs */
+.form-label {
+    display: block; /* Block display for label */
+    margin-bottom: 0.5rem; /* Space below the label */
+    font-weight: 600; /* Bold text */
+    color: var(--dark-color); /* Dark text color */
+}
+
+/* Styling for the rating control slider */
+.rating-control {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    gap: 1rem; /* Space between items */
+}
+
+/* Styling for the rating slider */
+.rating-slider {
+    flex: 1; /* Makes the slider take available space */
+    height: 8px; /* Height of the slider */
+    border-radius: 4px; /* Rounded corners */
+    background: #ddd; /* Light gray background */
+    outline: none; /* No outline on focus */
+    -webkit-appearance: none; /* For compatibility with WebKit browsers */
+    appearance: none; /* For compatibility with other browsers */
+}
+
+/* Styling for the slider thumb (the draggable part) */
+.rating-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default appearance */
+    width: 20px; /* Width of the thumb */
+    height: 20px; /* Height of the thumb */
+    border-radius: 50%; /* Circular thumb */
+    background: var(--primary-color); /* Primary color for the thumb */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Styling for the rating value */
+.rating-value {
+    padding: 0.3rem 0.8rem; /* Padding inside the rating value */
+    background-color: var(--primary-color); /* Background color */
+    color: white; /* White text */
+    border-radius: var(--border-radius); /* Rounded corners */
+    font-weight: 600; /* Bold text */
+    min-width: 60px; /* Minimum width */
+    text-align: center; /* Center the text */
+}
+
+/* Styling for form inputs */
+.form-control {
+    width: 100%; /* Full width */
+    padding: 0.75rem; /* Padding inside the input */
+    border: 2px solid #ddd; /* Border color */
+    border-radius: var(--border-radius); /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    transition: var(--transition); /* Smooth transition on focus */
+}
+
+/* Focus state for form inputs */
+.form-control:focus {
+    outline: none; /* Remove outline on focus */
+    border-color: var(--primary-color); /* Border color on focus */
+}
+
+/* Review card styling */
+.review-card {
+    background: #f8f9fa; /* Light background */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 1rem; /* Padding inside the card */
+    margin-bottom: 1rem; /* Space below each review */
+    border-left: 4px solid var(--warning-color); /* Left border */
+}
+
+/* Review header styling */
+.review-header {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 0.5rem; /* Space below the header */
+}
+
+/* Styling for the review rating */
+.review-rating {
+    font-weight: 600; /* Bold font */
+    color: var(--warning-color); /* Warning color */
+}
+
+/* Review date styling */
+.review-date {
+    color: #666; /* Gray color */
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+/* Sidebar card styling */
+.sidebar-card {
+    background: white; /* White background */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 1.5rem; /* Padding inside the card */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    margin-bottom: 1.5rem; /* Space below the card */
+}
+
+/* Sidebar card heading */
+.sidebar-card h5 {
+    color: var(--dark-color); /* Dark text color */
+    margin-bottom: 1rem; /* Space below the heading */
+    padding-bottom: 0.5rem; /* Padding below the heading */
+    border-bottom: 2px solid var(--light-color); /* Bottom border */
+}
